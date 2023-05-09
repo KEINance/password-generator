@@ -1,60 +1,122 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-
-lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
-upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-numberChars = "1234567890";
-specialChars = "!@#$%^&**(){}[]<>/?";
-
-
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+//result
+var generateBtn = document.querySelector("#generate");     //HERE
+var password = document.querySelector("#password");
+var lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
+var upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numberChars = "1234567890";
+var symbolChars = "!@#$%^&**(){}[]<>/?";
+var length = "length";
+var result = "result"
+
+
+var random = {
+    "lower" : getRandomLower,
+    "upper" : getRandomUpper,
+    "number" : getRandomNumber,
+    "symbol" : getRandomSymbol,
 }
 
-function length () {
-    
-}
+//define length
+(function() {
+    ("password").html(length.val());
+    length.on("change", function(){
+        ("password").html((this).val())
+    });
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-function writePassword() {
-    var length = length.value;
-    var hasLower = lowerCaseChars.checked;
-    var hasUpper = upperCaseChars.checked;
-    var hasNumber = numberChars.checked;
-    var hasSymbols = specialChars.checked;
+})
 
-    generateBtn.innerText = generatePassword(
+// need to create function for genpass
+// add promtps and confirms for user choice in characters for password
+//validate input 
+//gen password off criteria
+generateBtn("click", function){
+    var length = length.valueOf;
+    var lowerCaseChars = lowerCaseChars.checked;
+    var upperCaseChars = upperCaseChars.checked;
+    var numberChars = numberChars.checked;
+    va
+    symbolChars 
+    symbolChars.checked;
+
+generateBtn.innerText = generatePassword(
         hasLower, 
         hasUpper, 
         hasNumber, 
-        hasSymbols);
+        hasSymbols,
+        length
+        );
 };
 
-generateBtn.addEventListener("click", writePassword);{
+function generatePassword(hasLower, hasUpper, hassymbol, hasNumber) {
+    var generatePasswordStr = "";
+    var typeArr = {
+        "lower" : lower,
+        "upper" : upper,
+        "number" : number,
+        "symbol" : symbol,
+    }
+};
+
+for(let i = 0; i < length; i++) {
+        each(typesArr, function(key, value)) {
+            if(value != false){
+                var functionname = key;
+                generatePasswordSTr += random{functionName}();
+            }
+        }
+      var finalPassword = generatePasswordStr.slice(0, length);
+      return finalPassword;
+        
+    };
 
 function getRandomLower() {
-    var lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
-    return String.fromCharCode(math.Floor(Math.random() *26)+ 97);
+    return String.fromCharCode(Math.floor(Math.random() *26)+ 97);
 }
-
 function getRandomUpper() {
-    var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return String.fromCharCode(math.Floor(Math.random() *26)+ 65);
+    return String.fromCharCode(Math.floor(Math.random() *26)+ 65);
 }
-
 function getRandomNumber() {
-    var numbers = "1234567890";
-    return String.fromCharCode(math.Floor(Math.random() *10)+ 48);
+    return String.fromCharCode(Math.floor(Math.random() *10)+ 48);
+}
+function getRandomSymbol() {
+    var symbolChars = "!@#$%^&**(){}[]<>/?";
+    // return[math.Floor(Math.random() * symbols.length)]
+     String.fromCharCode[Math.floor(Math.random)() = symbols.length];
 }
 
-function getRandomSymbol() {
-    var symbols = "!@#$%^&**(){}[]<>/?";
-    return[math.Floor(math.Random() * symbols.length)]
-     String.fromCharCode(math.Floor(Math.random() *10)+ 48);
+function writePassword() {                          //HERE
+    var length = generatePassword();
+    var passwordText = document.querySelector("#password");
+    document.querySelector("password").textContentext = password;    //blue is extra
 }
-}
+
+
+
+// add promtps and confirms
+alert ("Please, choose password options!");
+
+confirm(
+    "Would you like upper case characters?", 
+    "Press okay for 'yes', cancel for 'no'"
+);
+confirm(
+    "Would you like lower case characters?", 
+    "Press okay for 'yes', cancel for 'no'"
+);
+confirm(
+    "Would you like number characters?", 
+    "Press okay for 'yes', cancel for 'no'"
+);
+confirm(
+    "Would you like symbol characters?", 
+    "Press okay for 'yes', cancel for 'no'"
+);
+prompt(
+    "What character length would be prefered between 8-128?", 
+);
+
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);        // HERE
