@@ -29,15 +29,15 @@ prompt(
 
 // choose chacters at random func
 function generatePassword() {
-    {return String.fromCharCode(Math.floor(Math.random() * 77) + 34)}
+    {return String.fromCharCode(Math.floor(Math.random() * 77) + 34)};
 
-    {return String.fromCharCode(Math.floor(Math.random() * 26) + 97)}
+    {return String.fromCharCode(Math.floor(Math.random() * 26) + 97)};
 
-    {return String.fromCharCode(Math.floor(Math.random() * 10) + 48)}
+    {return String.fromCharCode(Math.floor(Math.random() * 10) + 48)};
     
     {const symbols = "!@#$%^&*(){}[]=<>/,.";
-        return symbols[Math.floor(Math.random() * symbols.length)]
-}};
+        return symbols[Math.floor(Math.random() * symbols.length)]};
+};
 
 // allow password to be generated and returned
 function passwordGenerator(num) {
