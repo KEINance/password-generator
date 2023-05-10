@@ -28,9 +28,16 @@ prompt(
 );
 
 // choose chacters at random func
-function generatePassword(){
-    return String.fromCharCode(Math.floor(Math.random() * 77) + 34);
-};
+function generatePassword() {
+    {return String.fromCharCode(Math.floor(Math.random() * 77) + 34)}
+
+    {return String.fromCharCode(Math.floor(Math.random() * 26) + 97)}
+
+    {return String.fromCharCode(Math.floor(Math.random() * 10) + 48)}
+    
+    {const symbols = "!@#$%^&*(){}[]=<>/,.";
+        return symbols[Math.floor(Math.random() * symbols.length)]
+}};
 
 // allow password to be generated and returned
 function passwordGenerator(num) {
@@ -42,11 +49,11 @@ function passwordGenerator(num) {
   };
 
   // Write password to the #password input
-function writePassword(num) {                         
+function writePassword() {                         
     var length = generatePassword();
     var passwordText = document.querySelector("#password");
     
-    passwordText.value = password;
+    passwordText.value = length;
 }
 
 // Add event listener to generate button
