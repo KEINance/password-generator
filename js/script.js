@@ -4,48 +4,61 @@
 var generateBtn = document.querySelector("#generate");   
 var password = document.querySelector("#password");
 
+var numericCharacters =  ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+var specialCharacters = [  '@',  '%',  '+',  '\\',  '/',  "'",  '!',  '#',  '$',  '^',  '?',  ':',  ',',  ')',  '(',  '}',  '{',  ']',  '[',  '~',  '-',  '_',  '.'];
+var lowerCase = [  'a',  'b',  'c',  'd',  'e',  "f",  'g',  'h',  'i',  'j',  'k',  'l',  'm',  'n',  'o',  'p',  'q',  'r',  's',  't',  'u',  'v',  'w',  'x',  'y',  'z'];
+var upperCase = [  'A',  'B',  'C',  'D',  'E',  "F",  'G',  'H',  'I',  'J',  'K',  'L',  'M',  'N', 'O',  'P',  'Q',  'R',  'S',  'R',  'U',  'V',  'W',  'X',  'Y',  'Z'];
+
 // add promtps and confirms for user to make character choices
 alert("Please, choose password options!");
 
-confirm(
-    "Would you like upper case characters?", 
-    "Press okay for 'yes', cancel for 'no'"
-);
-confirm(
-    "Would you like lower case characters?", 
-    "Press okay for 'yes', cancel for 'no'"
-);
-confirm(
-    "Would you like number characters?", 
-    "Press okay for 'yes', cancel for 'no'"
-);
-confirm(
-    "Would you like symbol characters?", 
-    "Press okay for 'yes', cancel for 'no'"
-);
-prompt(
-    "What character length would be prefered between 8-128?", 
-);
+var possibleCharacters = [];
+var result = [];
 
 // choose chacters at random func
 function generatePassword() {
-    {return String.fromCharCode(Math.floor(Math.random() * 77) + 34)};
 
-    {return String.fromCharCode(Math.floor(Math.random() * 26) + 97)};
+var confirmUpperCase = confirm(
+    "Would you like upper case characters?", 
+    "Press okay for 'yes', cancel for 'no'"
+);
+var confirmLowerCase = confirm(
+    "Would you like lower case characters?", 
+    "Press okay for 'yes', cancel for 'no'"
+);
+var confirmNumber = confirm(
+    "Would you like number characters?", 
+    "Press okay for 'yes', cancel for 'no'"
+);
+var confirmSymbol = confirm(
+    "Would you like symbol characters?", 
+    "Press okay for 'yes', cancel for 'no'"
+);
 
-    {return String.fromCharCode(Math.floor(Math.random() * 10) + 48)};
-    
-    {const symbols = "!@#$%^&*(){}[]=<>/,.";
-        return symbols[Math.floor(Math.random() * symbols.length)]};
-};
+var passwordLength = prompt(
+    "What character length would be prefered between 8-128?", 
+);
 
-// allow password to be generated and returned
-function passwordGenerator(num) {
-    var result = '';
-    for (var i = 0; i < num; i++) {
-      result += generatePassword();
-    }
-    return result;
+if (confirmUpperCase === true) {
+    possibleCharacters = possibleCharacters.concat(upperCase);
+}
+if (confirmLowerCase === true) {
+    possibleCharacters = possibleCharacters.concat(lowerCase);
+} 
+if (confirmNumber === true) {
+    possibleCharacters = possibleCharacters.concat(numericCharacters);
+}
+if (confirmSymbol === true) {
+    possibleCharacters = possibleCharacters.concat(specialCharacters);
+}
+
+for (var i = 0; i < passwordLength; i++) {
+    var randomIndex = Math.floor(Math.random() * possibleCharacters.length); // returns number index
+    var indexValue = possibleCharacters[randomIndex]; // converts number index to true character value
+    result.push(indexValue);
+    console.log(result);
+}
+    return result.join("");
   };
 
   // Write password to the #password input
