@@ -18,6 +18,7 @@ var result = [];
 // choose chacters at random func
 function generatePassword() {
 
+
 var confirmUpperCase = confirm(
     "Would you like upper case characters?", 
     "Press okay for 'yes', cancel for 'no'"
@@ -71,3 +72,8 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+
+
+
