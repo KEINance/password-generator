@@ -39,6 +39,14 @@ var confirmSymbol = confirm(
 var passwordLength = prompt(
     "What character length would be prefered between 8-128?", 
 );
+if(passwordLength < 8 || passwordLength > 128) {
+    alert('Password needs to be greater that 8 characters and less that 128 characters, please, try again');
+    return;
+};
+if(!confirmUpperCase  && !confirmLowerCase && !confirmNumber && !confirmSymbol) {
+    alert('Please, choose some variant of character choice.');
+    return;
+};
 
 if (confirmUpperCase === true) {
     possibleCharacters = possibleCharacters.concat(upperCase);
