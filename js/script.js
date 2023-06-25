@@ -18,6 +18,15 @@ var result = [];
 // choose chacters at random func
 function generatePassword() {
 
+var passwordLength = prompt(
+    "What character length would be prefered between 8-128?");    
+if (passwordLength < 8 || passwordLength > 128) {
+    alert('Password needs to be greater that 8 characters and less that 128 characters, please, try again');
+    return generatePassword();
+} else if (isNaN(passwordLength)) {
+    alert('Password length must be an integer between 8 and 128!');
+    return generatePassword();
+};
 
 var confirmUpperCase = confirm(
     "Would you like upper case characters?", 
@@ -35,19 +44,10 @@ var confirmSymbol = confirm(
     "Would you like symbol characters?", 
     "Press okay for 'yes', cancel for 'no'"
 );
-
-var passwordLength = prompt(
-    "What character length would be prefered between 8-128?", 
-);
-if(passwordLength < 8 || passwordLength > 128) {
-    alert('Password needs to be greater that 8 characters and less that 128 characters, please, try again');
-    return;
-};
 if(!confirmUpperCase  && !confirmLowerCase && !confirmNumber && !confirmSymbol) {
     alert('Please, choose some variant of character choice.');
     return;
 };
-
 if (confirmUpperCase === true) {
     possibleCharacters = possibleCharacters.concat(upperCase);
 }
